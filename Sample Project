@@ -1,0 +1,32 @@
+package com.browser;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class BrowserLaunch {
+	public static void main(String[] args) throws InterruptedException {
+		
+		//Interface referencename =new class name();
+		WebDriver w=new ChromeDriver();
+		System.out.println(w);
+		
+		w.get("http://www.greenstechnologys.com/");
+		
+		//to maximize the webpage
+		w.manage().window().maximize();
+		
+		WebElement element = w.findElement(By.xpath("//a[text()='Online Courses']"));
+		
+		Actions action = new Actions(w);
+		
+     	action.moveToElement(element).perform();
+     	
+     	WebElement element2 = w.findElement(By.xpath("//span[text()='Test Automation Engineer']"));
+     	
+     	element2.click();
+    
+	}
+}
